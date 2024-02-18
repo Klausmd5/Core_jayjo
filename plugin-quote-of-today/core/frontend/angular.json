@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "projects": {
+    "auth": "apps/auth",
+    "core-ui": "libs/core-ui",
+    "frontend": "apps/frontend",
+    "mainframe": "apps/mainframe",
+    "mainframe-connector": "libs/mainframe-connector"
+  }
+}

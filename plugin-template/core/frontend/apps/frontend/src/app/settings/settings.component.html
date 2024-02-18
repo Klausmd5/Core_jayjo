@@ -1,0 +1,50 @@
+<div class="m-5">
+  <div class="flex flex-row items-center gap-8">
+    <label>Benachrichtigungen</label>
+    <label class="inline-flex relative items-center cursor-pointer">
+      <input class="sr-only peer" type="checkbox" value="">
+      <div
+        class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gray-600"></div>
+      <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
+    </label>
+  </div>
+  <div class="mt-5">
+    <label>Anmeldedaten</label>
+    <div class="border border-gray-200 rounded-xl overflow-hidden shadow-md shadow-gray-500/50" data-accordion="open"
+         id="accordion-credentials">
+      <div *ngFor="let credential of credentials">
+        <h2 class="inner" id="accordion-{{credential}}-heading">
+          <button [ngClass]="{'rounded-t-xl bg-transparent text-inherit': credential === credentials[0]}"
+                  aria-controls="accordion-credentials-body-3"
+                  aria-expanded="false"
+                  class="flex items-center justify-between w-full p-3 font-medium text-left text-inherit border-b border-b-gray-200"
+                  data-accordion-target="#accordion-credentials-body-3"
+                  type="button">
+            <span>{{credential}}</span>
+            <svg class="w-6 h-6 shrink-0" data-accordion-icon fill="none" stroke="currentColor" stroke-width="1.5"
+                 viewBox="0 0 24 24"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </button>
+        </h2>
+        <div attr.aria-labelledby="accordion-{{credential}}-heading" class="hidden" id="accordion-{{credential}}-body">
+          <div class="p-5 font-light border-b border-t-0 border-gray-200">
+            <div class="flex flex-col items-center justify-center v-screen mb-0 p-5 border border-gray-200">
+              <syno-token [(token)]="token"></syno-token>
+              <syno-button (click)="click(credential)">Save</syno-button>
+              <div *ngIf="changeAnswer.length>0"
+                   class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                   role="alert">
+                <span class="font-medium">{{changeAnswer}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

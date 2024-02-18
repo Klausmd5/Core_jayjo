@@ -1,0 +1,21 @@
+.logo-placeholder {
+  aspect-ratio: 1;
+  background: radial-gradient(
+    134.78% 134.78% at 82.61% 10.87%,
+    #0500ed 0%,
+    #42ff00 100%
+  );
+}
+
+.isSelectedView {
+  background-color: white;
+}
+
+.blur {
+  background-color: #fff;
+  opacity: 0.2;
+}
+
+.navbar-icon-scale {
+  transform: scale(0.7);
+}

@@ -1,0 +1,10 @@
+<h1 class="text-4xl font-bold my-5">{{title}}</h1>
+<div class="grid grid-cols-4 gap-4">
+  <div *ngFor="let user of contributors" >
+    <a [href]="user['html_url']">
+    <ng-credit-card [name]="user['login']" [number]="user['id']+'/'+getCommitCountStr(user)+'/'+lastContribute[user['login']]" cvc="123" [expiry]="lastContribute[user['login']]"></ng-credit-card>
+    </a>
+  </div>
+</div>
+<br>
+<hr>

@@ -1,0 +1,4 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/Environment/Hierarchy/Build/BuildTool/RecentBuildToolPaths/=_002Fnix_002Fstore_002Fmyig103yn81fdap0hr5jknvanikwj1nc_002Dmsbuild_002D16_002E10_002E1_002Bxamarinxplat_002E2021_002E05_002E26_002E14_002E00_002Fbin_002Fmsbuild/@EntryIndexedValue">True</s:Boolean>
+	<s:Int64 x:Key="/Default/Environment/Hierarchy/Build/BuildTool/MsbuildVersion/@EntryValue">4294967294</s:Int64>
+	<s:String x:Key="/Default/Environment/Hierarchy/Build/BuildTool/CustomBuildToolPath/@EntryValue">/nix/store/myig103yn81fdap0hr5jknvanikwj1nc-msbuild-16.10.1+xamarinxplat.2021.05.26.14.00/bin/msbuild</s:String></wpf:ResourceDictionary>

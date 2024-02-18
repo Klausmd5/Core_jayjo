@@ -1,0 +1,91 @@
+﻿version: '3.9'
+
+services:
+  caddy:
+    container_name: core-caddy
+    restart: unless-stopped
+    build:
+      context: ..
+      dockerfile: deployment/caddy/caddy.Dockerfile
+    environment:
+      DOMAIN_NAME: "${DOMAIN_NAME}"
+      TLS_EMAIL: "${TLS_EMAIL}"
+    depends_on:
+      - backend
+      - secure
+    volumes:
+      - ./plugins/web:/srv/plugins
+      - ./caddy/mainframe-config.json:/srv/mainframe-config.input.json
+      - ./caddy/Caddyfile:/srv/input.Caddyfile
+      - ./caddy-data:/data
+    ports:
+      - '80:80'
+      - '443:443'
+      - '443:443/udp'
+    networks:
+      - public
+
+  backend:
+    container_name: core-backend
+    restart: unless-stopped
+    build:
+      context: ..
+      dockerfile: deployment/backend.Dockerfile
+    environment:
+      RSA__public-key: "${RSA_PUBLIC_KEY_FILE}"
+      JWT__Issuer: "https://mainframe.${DOMAIN_NAME}"
+      JWT__Audience: "https://mainframe.${DOMAIN_NAME}"
+      MainframeOrigin: "https://mainframe.${DOMAIN_NAME}"
+    depends_on:
+      - backend-database
+    volumes:
+      - ./plugins/backend:/app/plugins
+      - ./public-keys:/app/keys
+    networks:
+      - public
+      - backend
+
+  backend-database:
+    container_name: core-backend-database
+    restart: unless-stopped
+    image: mariadb:10.10
+    environment:
+      MARIADB_ROOT_PASSWORD: network-security
+    networks:
+      - backend
+
+  secure:
+    container_name: core-secure
+    restart: unless-stopped
+    build:
+      context: ..
+      dockerfile: deployment/backend.secure.Dockerfile
+    environment:
+      ConnectionStrings__Production: "server=secure-database;database=core;user=root;password=network-security"
+      MainframeOrigin: "https://mainframe.${DOMAIN_NAME}"
+      LDAPConfiguration__ServerIp: "${LDAP_SERVER_IP}"
+      JWT__Issuer: "https://mainframe.${DOMAIN_NAME}"
+      JWT__Audience: "https://mainframe.${DOMAIN_NAME}"
+      RSA__private-key: "${RSA_PRIVATE_KEY_FILE}"
+      RSA__public-key: "${RSA_PUBLIC_KEY_FILE}"
+    depends_on:
+      - secure-database
+    volumes:
+      - ./private-keys:/app/keys
+    networks:
+      - public
+      - secure
+
+  secure-database:
+    container_name: core-secure-database
+    restart: unless-stopped
+    image: mariadb:10.9
+    environment:
+      MARIADB_ROOT_PASSWORD: network-security
+    networks:
+      - secure
+
+networks:
+  public:
+  backend:
+  secure:

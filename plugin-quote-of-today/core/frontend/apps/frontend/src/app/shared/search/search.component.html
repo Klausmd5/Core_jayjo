@@ -1,0 +1,48 @@
+<div class="backdrop-blur h-full w-full absolute z-30 top-0 left-0" (click)="close()"></div>
+
+<div class="container h-full py-16 mx-auto left-0 right-0 absolute z-40 flex flex-col">
+  <div class="flex w-full gap-4 justify-between">
+    <div class="grow-[2] flex bg-synogray-80 shadow-md rounded-3xl">
+      <i-tabler name="search" class="my-auto h-8 ml-3.5 mr-2"/>
+      <input
+        [(ngModel)]="searchterm"
+        (keyup)="search()"
+        placeholder="Enter your search term here"
+        class="w-full h-full focus-visible:outline-none text-black bg-transparent placeholder:text-black"/>
+    </div>
+    <div class="grow shrink-0 w-12">
+      <syno-select-multiple
+        [items]="selectOptions"
+        excludeClasses="bg-gradient-to-r from-synoblue to-synogreen"
+        includeClasses="shadow-md rounded-3xl focus-visible:outline-none text-black bg-synogray-80 h-full flex shrink-0"
+        title="Search for tags"
+        (selectionChanged)="search()"></syno-select-multiple>
+    </div>
+    <div class=" min-h-12 grid bg-synogray-80 shadow-md rounded-3xl">
+      <button (click)="close()" class="my-auto text-black mr-3 ml-3 flex justify-self-center">
+        <i-tabler name="x" class="block"></i-tabler>
+      </button>
+    </div>
+  </div>
+  <div class="w-full flex-1 h-fit max-h-full pt-6 pb-10">
+    <div
+      class="w-full h-full rounded-2xl overflow-hidden bg-synogray-80">
+      <div
+        *ngIf="results.length > 0"
+        class="overflow-y-scroll shadow-md  h-full items-start flex flex-col gap-5 p-5">
+        <div class="w-full mb-2 flex gap-2 items-center">
+          <div class="text-white flex justify-center bg-gray-800 rounded-full items-center h-8 w-8">
+            <i-tabler name="star" class="block"/>
+          </div>
+          <h2 class="text-xl font-bold">Suchergebnisse</h2>
+        </div>
+        <app-search-result class="w-full" *ngFor="let plugin of results" [plugin]="plugin"></app-search-result>
+      </div>
+      <div
+        *ngIf="results.length == 0"
+        class="flex items-center h-full w-full justify-center">
+        Es wurden keine Plugins gefunden.
+      </div>
+    </div>
+  </div>
+</div>

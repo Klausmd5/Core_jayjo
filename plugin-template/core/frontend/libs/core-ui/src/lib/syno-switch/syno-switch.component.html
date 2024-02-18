@@ -1,0 +1,8 @@
+<div class="p-[3px] bg-synogray-190/50 rounded-full border-[1.4px] border-synogray-350" (click)="switchState()">
+  <div [ngClass]="setClass()">
+    <div class="indicator absolute h-full rounded-full aspect-square top-0 transition-all bg-white border-[1.4px] border-synogray-190"
+         [ngClass]="{'left-0': !_active, 'left-1/2': _active}">
+    </div>
+    <ng-content/>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+# frontend
+frontend    @littlegamer757
+frontend/apps/mainframe      @profiluefter @Klausmd5
+
+# architektur team
+Core.WebUntis.Interface      @profiluefter
+Core.Moodle.Interface        @profiluefter
+Core.Ldap.Interface          @profiluefter
+Core.Plugin.Interface        @profiluefter @SchneckchenAndy
+Core.WebUntis.Interface      @profiluefter @SchoenbergerFabian
+Core.Moodle.Interface        @profiluefter @EinboeckFranz
+Core.Ldap.Interface          @profiluefter @EinboeckFranz
+Core.Backend/Pluginloader.cs @Klausmd5
+Core.Backend.Secure          @Klausmd5
+
+deployment                   @profiluefter
+deployment/builder.sh        @Klausmd5
+
+Core.AuthLib                                 @Klausmd5
+Core.AuthLib/Services/RsaService.cs          @Klausmd5
+Core.Backend.Secure/Services                 @Klausmd5
+
+# backend 2
+Core.Moodle.Implementation  @EinboeckFranz
+Core.Ldap.Implementation    @EinboeckFranz
+
+# backend 1
+Core.WebUntis.Implementation    @SchoenbergerFabian
+
+# miscellaneous files
+diagrams                    @SchneckchenAndy
+.editorconfig               @profiluefter
+
+.pre-commit-config.yaml     @profiluefter
+.github/release-drafter.yml @Klausmd5
+
+.github/workflows/*                     @profiluefter
+.github/workflows/release-drafter.yml   @Klausmd5
+
+# SIMONCHECK
+.github/checkPw.py           @Klausmd5
+.github/hasher.py            @Klausmd5
+
+CODEOWNERS @profiluefter

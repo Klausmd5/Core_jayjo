@@ -1,0 +1,39 @@
+@startuml
+actor User
+
+rectangle Browser {
+   node Mainframe
+   node Plugin
+}
+
+database db [
+    Datenbank
+]
+
+node PluginBackend
+database PluginDatabase
+node SecureBackend
+node LDAPInterface
+node WebUntisInterface
+node EduvidualInterface
+
+
+rectangle APIs {
+   node LDAP
+   node WebUntis
+   node eduvidual
+}
+
+User--> Mainframe
+Mainframe---> SecureBackend
+Mainframe<--> Plugin
+Plugin --> PluginBackend
+PluginBackend --> PluginDatabase
+SecureBackend--> WebUntisInterface
+WebUntisInterface--> WebUntis
+SecureBackend--> EduvidualInterface
+EduvidualInterface--> eduvidual
+SecureBackend--> LDAPInterface
+LDAPInterface--> LDAP
+SecureBackend--> db
+@enduml

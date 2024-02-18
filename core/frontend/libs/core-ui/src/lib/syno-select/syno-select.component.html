@@ -1,0 +1,7 @@
+<div [class]="setClass()">
+  <select
+    class="h-full relative bg-white/80 rounded-[0.42rem] text-black px-3 py-2"
+    [disabled]="disabled">
+    <option *ngFor="let o of options" (click)="selectionChanged.emit(o)">{{o}}</option>
+  </select>
+</div>

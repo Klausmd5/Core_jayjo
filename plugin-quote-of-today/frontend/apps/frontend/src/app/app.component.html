@@ -1,0 +1,12 @@
+<div
+  class="h-full w-full bg-gradient-to-br from-[#00FF38] to-[#0400D2] flex flex-col text-white"
+>
+  <div class="flex-1 flex flex-col justify-center items-center">
+    <p class="font-bold italic text-2xl mb-1">"{{ quote }}"</p>
+    <p class="text-white">by {{ author }}</p>
+  </div>
+  <div class="flex justify-between p-10">
+    <p>Quote of the day #{{ num }}</p>
+    <p>q{{ date | date: "YYMMdd" }}</p>
+  </div>
+</div>

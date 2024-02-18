@@ -1,0 +1,31 @@
+<div class="mb-6 flex-row w-80">
+  <label class="block mb-2 text-sm font-medium text-gray-900" for="token">Token</label>
+  <form class="h-14">
+    <div class="absolute">
+      <input #tokenHTML
+             (ngModelChange)="validate(tokenHTML.value)"
+             [(ngModel)]="token"
+             [disabled]="disabled"
+             [ngClass]="setClass()"
+             class="rounded-md block border w-80 p-3 pr-10 focus:outline-none focus:ring-1"
+             id="token"
+             name="eduToken" placeholder="Enter your Token"
+             required
+             title="Enter a valid Token"
+             type="password"
+      />
+
+      <div class="absolute inset-y-0 right-1 pr-2 flex items-center pl-3">
+        <button (click)="changePwVisibility()">
+          <tabler-icon *ngIf="tokenHTML.type === 'password'" class="align-middle" name="eyeglass"></tabler-icon>
+          <tabler-icon *ngIf="tokenHTML.type === 'text'" class="align-middle" name="eyeglass-off"
+                       style="color: #222"></tabler-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+  <span *ngIf="valid === false"
+        class="text-red-700 text-xs dark:text-red-400 placeholder-red-700 dark:placeholder-red-500">
+    Enter a valid Token!
+  </span>
+</div>

@@ -1,0 +1,19 @@
+<!--<div style="width: 50vw; height: 50vh">-->
+<!--&lt;!&ndash;  <mainframe-plugin-placeholder></mainframe-plugin-placeholder>&ndash;&gt;-->
+<!--</div>-->
+<app-search *ngIf="isSearchShown"></app-search>
+<div class="h-screen w-full relative overflow-hidden">
+  <div class="container mx-auto flex flex-col h-full z-20 relative">
+    <app-nav-bar></app-nav-bar>
+    <div class="flex-1 relative overflow-auto">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </div>
+
+  <img
+    src="../assets/bg-line.svg"
+    alt=""
+    class="absolute top-0 left-1/2 -translate-x-1/2 z-10"
+  />
+</div>

@@ -1,0 +1,10 @@
+<div class="overflow-y-scroll h-full pr-8">
+  <app-category
+    *ngFor="let course of categories"
+    [plugins]="course.plugins"
+    [title]="course.name"
+    [icon]="course.icon"
+    class="w-full"
+  >
+  </app-category>
+</div>

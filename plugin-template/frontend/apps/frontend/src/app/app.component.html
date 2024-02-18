@@ -1,0 +1,10 @@
+<div>
+  <span><b>Without Authorization</b></span><br>
+  <span [ngClass]="getClass(withoutAuth)">
+    {{withoutAuth ? 'Works!' : 'Connection not possible. Is your Backend running?'}}
+  </span><br>
+  <span><b>With Authorization</b></span><br>
+  <span [ngClass]="getClass(withAuth)">
+    {{withAuth ? 'Works!' : 'Connection not possible. Is your Backend running and is your Authorization Token correct?'}}
+  </span>
+</div>

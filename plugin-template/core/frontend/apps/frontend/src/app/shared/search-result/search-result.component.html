@@ -1,0 +1,20 @@
+<div class="flex p-2 cursor-pointer items-center gap-5 w-full rounded-xl hover:shadow-md hover:bg-white"
+     (click)="open()">
+  <app-grid-plugin [plugin]="plugin"></app-grid-plugin>
+  <div class="flex-row">
+    <h2 class="text-xl font-bold mb-2">{{plugin.name}}</h2>
+    <p class="mb-1">{{plugin.description}}</p>
+    <div>
+      <syno-tag *ngFor="let tag of plugin.tags" [name]="tag"></syno-tag>
+    </div>
+  </div>
+  <!--  <div class="mt-auto ml-auto flex items-bottom">-->
+  <!--    <app-syno-btn>-->
+  <!--      <div-->
+  <!--        class="flex justify-center items-center w-full h-full px-3 text-black">-->
+  <!--        <p class="font-bold text-xs flex-1 w-[100px]">open</p>-->
+  <!--        <i-tabler name="affiliate" class="scale-75"></i-tabler>-->
+  <!--      </div>-->
+  <!--    </app-syno-btn>-->
+  <!--  </div>-->
+</div>

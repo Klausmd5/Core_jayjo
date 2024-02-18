@@ -1,0 +1,8 @@
+.logo-placeholder {
+  aspect-ratio: 1;
+  background: radial-gradient(
+    134.78% 134.78% at 82.61% 10.87%,
+    #0500ed 0%,
+    #42ff00 100%
+  );
+}

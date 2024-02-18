@@ -1,0 +1,32 @@
+<div
+  id="accordion-flush"
+  class="pb-5"
+  data-accordion="collapse"
+  data-active-classes="dark:text-white"
+  data-inactive-classes="dark:text-gray-400"
+>
+  <h2 id="accordion-flush-heading-1">
+    <button
+      type="button"
+      (click)="hidden = !hidden"
+      class="flex items-center justify-between w-full py-5 font-medium text-left"
+      data-accordion-target="#accordion-flush-body-1"
+      aria-expanded="true"
+      aria-controls="accordion-flush-body-1"
+    >
+      <div class="flex gap-2">
+        <i-tabler [name]="icon" height="24" width="24" />
+        <span>{{ title }}</span>
+      </div>
+      <i-tabler *ngIf="hidden" name="chevron-up"></i-tabler>
+      <i-tabler *ngIf="!hidden" name="chevron-down"></i-tabler>
+    </button>
+  </h2>
+  <div
+    *ngIf="hidden"
+    class="accordion-body overflow-hidden duration-500 transition-all"
+    [ngClass]="{ 'accordion-body-displayed': hidden }"
+  >
+    <app-grid-plugin *ngFor="let plugin of plugins" [plugin]="plugin"></app-grid-plugin>
+  </div>
+</div>

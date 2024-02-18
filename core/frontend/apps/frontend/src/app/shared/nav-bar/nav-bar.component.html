@@ -1,0 +1,26 @@
+<nav
+  class="flex flex-row items-center justify-between relative my-10 h-10 gap-6"
+>
+  <div class="flex flex-row items-center gap-6 overflow-auto">
+    <div class="logo-placeholder w-[2.3rem] rounded-full inline-block p-4 left-0"></div>
+    <ul
+      class="text-sm font-medium gap-3 text-synogray-500 flex overflow-auto"
+    >
+      <app-tab *ngFor="let tab of tabs" [title]="tab.name" [isActive]="tab.active" (closeTab)="closeTabClick(tab)"
+               (openTab)="showPlugin(tab)"></app-tab>
+    </ul>
+  </div>
+
+  <div class="flex flex-row items-center gap-2 h-full" *ngIf="showControls">
+    <syno-icon-button (click)="searchClicked()">
+      <i-tabler name="search" class="navbar-icon-scale"/>
+    </syno-icon-button>
+    <syno-switch (stateChanged)="changeView()">
+      <i-tabler name="layout-grid" class="navbar-icon-scale"/>
+      <i-tabler name="list" class="navbar-icon-scale"/>
+    </syno-switch>
+    <syno-icon-button (click)="showSettings()">
+      <i-tabler name="settings" class="navbar-icon-scale"/>
+    </syno-icon-button>
+  </div>
+</nav>

@@ -1,0 +1,47 @@
+﻿{
+    "plugins": {
+        "polls": {
+            "url": "http://localhost:4202",
+            "repoUrl": "https://github.com/htl-grieskirchen-core/plugin-polls",
+            "info": {
+                "name": "Polls",
+                "description": "Plugin Polls",
+                "teachers": [
+                    "Teacher1",
+                    "Teacher2"
+                ],
+                "tags": [
+                    "dua moi wos"
+                ],
+                "startDate": "1662789600",
+                "endDate": "1663221600",
+                "image": "example.com/image.png"
+            }
+        },
+        "quote-of-today": {
+            "url": "http://localhost:4202",
+            "repoUrl": "https://github.com/htl-grieskirchen-core/plugin-quote-of-today",
+            "info": {
+                "name": "Quote of Today",
+                "description": "Quote of Today on Login Screen",
+                "teachers": [
+                    "Teacher1",
+                    "Teacher2"
+                ],
+                "tags": [
+                    "quotes"
+                ],
+                "startDate": "1662789600",
+                "endDate": "1663221600",
+                "image": "example.com/image.png"
+            }
+        }
+    },
+    "login": {
+        "url": "http://localhost:4200/login"
+    },
+    "navigation": {
+        "url": "http://localhost:4201/"
+    },
+    "secureBackendUrl": "https://localhost:7139"
+}

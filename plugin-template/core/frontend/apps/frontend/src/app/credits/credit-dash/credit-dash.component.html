@@ -1,0 +1,6 @@
+<h1 class="text-4xl font-bold my-5">Credits to our Contributors:</h1>
+<app-cards></app-cards>
+<h1 class="text-4xl font-bold my-5">Plugins:</h1>
+<br>
+
+<app-cards *ngFor="let plugin of plugins" [title]="plugin.name" [repoOwner]="plugin.repoOwner" [repoName]="plugin.repoName"></app-cards>

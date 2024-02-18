@@ -1,0 +1,19 @@
+.plugin-box {
+  border-radius: 10px;
+  width: 14.5em;
+  height: 10em;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  padding: 0.5em 1em;
+}
+
+.name-box {
+  margin-top: auto;
+  font-size: large;
+  color: white;
+}
+
+.fill-yellow-400 {
+  fill: #E3A008 !important;
+}
